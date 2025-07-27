@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: master
 
 # Site URL'ini belirtin
 site_url: https://mog-blog.netlify.app
