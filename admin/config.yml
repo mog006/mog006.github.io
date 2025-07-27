@@ -1,8 +1,8 @@
----
----
 backend:
   name: git-gateway
   branch: main
+
+SITE_URL: https://mog006.github.io
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
