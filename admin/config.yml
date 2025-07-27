@@ -2,20 +2,40 @@ backend:
   name: git-gateway
   branch: main
 
-SITE_URL: https://mog006.github.io
+# Site URL'ini belirtin
+site_url: https://mog-blog.netlify.app
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
+# Logo ekleyebilirsiniz (isteğe bağlı)
+# logo_url: https://your-site.com/images/logo.svg
+
 collections:
   - name: "posts"
-    label: "Posts"
+    label: "Blog Posts"
     folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Categories", name: "categories", widget: "list" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          required: true
+        }
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "list",
+          required: false
+        }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - {
+          label: "Featured Image",
+          name: "image",
+          widget: "image",
+          required: false
+        }
+      - { label: "Body", name: "body", widget: "markdown", required: true }

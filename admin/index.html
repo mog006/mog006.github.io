@@ -2,26 +2,25 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Admin Debug</title>
+    <title>Content Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <h1>Admin sayfası çalışıyor!</h1>
-    <p>Bu mesajı görüyorsanız, admin klasörü doğru şekilde serve ediliyor.</p>
     <div id="nc-root"></div>
 
-    <script>
-      console.log('Script çalışıyor');
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 
-      // Netlify CMS yükleme
-      const script = document.createElement('script');
-      script.src = 'https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js';
-      script.onload = function () {
-        console.log('Netlify CMS yüklendi');
-      };
-      script.onerror = function () {
-        console.error('Netlify CMS yüklenemedi');
-      };
-      document.head.appendChild(script);
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', (user) => {
+          if (!user) {
+            window.netlifyIdentity.on('login', () => {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      }
     </script>
   </body>
 </html>
