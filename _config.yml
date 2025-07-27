@@ -217,4 +217,3 @@ exclude:
   - "package*.json"
 include:
   - admin
-  - admin
