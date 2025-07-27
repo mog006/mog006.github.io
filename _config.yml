@@ -215,6 +215,6 @@ exclude:
   - purgecss.js
   - "*.config.js"
   - "package*.json"
-
 include:
+  - admin
   - admin
